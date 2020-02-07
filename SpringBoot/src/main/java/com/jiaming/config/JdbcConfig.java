@@ -1,6 +1,5 @@
 package com.jiaming.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -21,7 +20,7 @@ import javax.sql.DataSource;
  * - @value：属性注入
  * - @PropertySource：指定外部属性文件，
  */
-@Configuration
+//@Configuration
 //@PropertySource("classpath:application.properties")
 //@EnableConfigurationProperties(JdbcProperties.class)
 public class JdbcConfig {
@@ -64,10 +63,10 @@ public class JdbcConfig {
     //SpringBoot 属性注入方式二
     // 偏向于自己使用 更加方便快捷
     // 直接注入
-    @Bean
+   /* @Bean
     @ConfigurationProperties(prefix = "jdbc")
     public DataSource dataSource(){
 
         return new DruidDataSource();
-    }
+    }*/
 }

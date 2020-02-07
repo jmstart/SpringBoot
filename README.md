@@ -41,3 +41,40 @@
         SpringApplication.run(BootDemo.class, args);
        }
     }
+
+6. SpringBoot的属性注入
+	6.1 普遍注入(普适性)
+	1.将jdbc.properties名称改为application.properties
+	2.在类上通过@ConfigurationProperties注解声明当前JdbcProperties类为属性读取类
+		`prefix="jdbc"`读取属性文件中，前缀为jdbc的值
+	3.声明有@Bean的方法参数注入 JdbcConfig中使用这个属性 @EnableConfigurationProperties(JdbcProperties.class)
+	4.@Autowired注入
+	5.构造函数注入
+
+	6.2 更优雅的注入(自嗨式)
+	我们直接把`@ConfigurationProperties(prefix = "jdbc")`声明在需要使用的`@Bean`的方法上，
+	然后SpringBoot就会自动调用这个Bean（此处是DataSource）的set方法，然后完成注入。使用的前提是：**该类必须有对应属性的set方法！**
+
+7. Yaml配置文件
+	application.yaml 或 application.yml 替代 application.properties
+	更加方便 简洁
+
+8. 自动配置原理
+	8.1 @SpringBootApplication
+		其底层源码主要注解有:
+			@SpringBootConfiguration
+			@EnableAutoConfiguration
+			@ComponentScan
+	8.2 @SpringBootConfiguration
+		配置注解
+	8.3 @EnableAutoConfiguration
+		启动自动配置
+	8.4 @ComponentScan
+		扫描配置:默认扫描的包是该类所在包及其子包。因此，**一般启动类会放在一个比较前的包目录中。**
+
+	
+
+
+
+
+

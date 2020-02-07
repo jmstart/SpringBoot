@@ -14,12 +14,11 @@ import javax.sql.DataSource;
 @RestController
 public class HelloSpringBoot {
 
-    @Autowired
-    private DataSource dataSource;
+    //@Autowired
+    //private DataSource dataSource;
 
-    @GetMapping("hello")
-    public String hello(){
-
+    @GetMapping("hello.do")
+    public String hello() {
         return "Hello SpringBoot...";
     }
 }
