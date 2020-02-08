@@ -1,15 +1,22 @@
 package com.jiaming.pojo;
 
 import lombok.Data;
+import tk.mybatis.mapper.annotation.KeySql;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
+@Table(name = "tb_user") //数据库表名
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id //主键
+    @KeySql(useGeneratedKeys = true) //主键自增长
     private Long id;
 
     // 用户名
@@ -37,6 +44,7 @@ public class User implements Serializable {
     private Date updated;
 
     // 备注
+    @Transient //瞬时的 不是永久的字段
     private String note;
 
     public Long getId() {

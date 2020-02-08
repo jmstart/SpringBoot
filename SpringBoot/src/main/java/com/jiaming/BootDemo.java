@@ -3,6 +3,7 @@ package com.jiaming;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @author jmstart
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 
 @SpringBootApplication
+@MapperScan("com.jiaming.mapper") //扫描mapper接口 不能导入Mybatis注解了 使用通用的 tk.mybatis...
 public class BootDemo {
 
     public static void main(String[] args) {

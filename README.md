@@ -72,9 +72,165 @@
 	8.4 @ComponentScan
 		扫描配置:默认扫描的包是该类所在包及其子包。因此，**一般启动类会放在一个比较前的包目录中。**
 
+9. 总结
+
+SpringBoot为我们提供了默认配置，而默认配置生效的条件一般有两个：
+
+- 你引入了相关依赖
+- 你自己没有配置
+
+1）启动器
+
+所以，我们如果不想配置，只需要引入依赖即可，而依赖版本我们也不用操心，因为只要引入了SpringBoot提供的stater（启动器），就会自动管理依赖及版本了。
+
+因此，玩SpringBoot的第一件事情，就是找启动器，SpringBoot提供了大量的默认启动器，参考课前资料中提供的《SpringBoot启动器.txt》
+
+2）全局配置
+
+另外，SpringBoot的默认配置，都会读取默认属性，而这些属性可以通过自定义`application.properties`文件来进行覆盖。这样虽然使用的还是默认配置，但是配置中的值改成了我们自定义的。
+
+因此，玩SpringBoot的第二件事情，就是通过`application.properties`来覆盖默认属性值，形成自定义配置。我们需要知道SpringBoot的默认属性key，非常多，参考课前资料提供的：《SpringBoot全局属性.md》
+
+10. SpringBoot实践
+	10.1 整合SpringMVC (在application.yml里操作)
+		修改端口: 
+		server:
+			port: 8088
+		拦截路径:
+		  servlet:
+			path: "*.do"
+		日志级别(输出日志):
+		logging:
+		  level:
+			com.jiaming: debug
+			org.springframework: debug
+
+11. 配置拦截器
+	11.1 首先定义一个拦截器
+		@Slf4j //以后可以直接使用注解 不用下面那句话了
+		public class MyInterceptor implements HandlerInterceptor {
+			//记日志 导入 org.slf4j.Logger 包
+			//private static final Logger log = LoggerFactory.getLogger(MyInterceptor.class);
+			@Override
+			public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+				//使用 log
+				log.debug("preHandle method is running");
+				return true;
+			}
+			@Override
+			public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+				log.debug("postHandle method is running");
+			}
+			@Override
+			public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+				log.debug("afterCompletion method is running");
+			}
+		}
+	11.2 定义配置类，注册拦截器
+		@Configuration
+		public class MvcConfig implements WebMvcConfigurer {
+			//添加拦截器
+			@Override
+			public void addInterceptors(InterceptorRegistry registry) {
+				registry.addInterceptor(new MyInterceptor()).addPathPatterns("/**");
+			}
+		}
+
+12. 整合数据库连接池和数据库驱动
+	12.1 配置连接池(两个可以选择使用)
+		配置一下启动器SpringBoot有默认连接池HiKariCP
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		
+		<!-- Druid连接池 启动器 Druid官方提供的启动器--> 
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.6</version>
+		</dependency>
 	
+	12.2 配置数据库驱动
+		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+	
+	12.3 配置application.yml文件
 
+13. 整合mybatis
+	13.1 mybatis启动器
+	<!--mybatis -->
+	<dependency>
+		<groupId>org.mybatis.spring.boot</groupId>
+		<artifactId>mybatis-spring-boot-starter</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+	
+	13.2 配置application.yml文件
+	mybatis:
+	configuration:
+	map-underscore-to-camel-case: true      //驼峰命名
+	type-aliases-package: com.jiaming.pojo  //别名
+	
+	配置到启动类里
+	@MapperScan("com.jiaming.mapper") //扫描mapper接口
+	
+14. 通用mapper
+	14.1 引入启动器
+	<!-- 通用mapper -->
+	<dependency>
+		<groupId>tk.mybatis</groupId>
+		<artifactId>mapper-spring-boot-starter</artifactId>
+		<version>2.0.2</version>
+	</dependency>
+	14.2 注意事项
+	它自动引入Mybatis 和 jdbc数据库连接池 上面的坐标可以删掉
+	在启动类中@MapperScan("com.jiaming.mapper") //扫描mapper接口 不能导入包Mybatis注解了 使用通用的 tk.mybatis...
+	application.yml文件 注释掉驼峰
+	#驼峰 通用mapper 也引入了
+	#configuration:
+    #map-underscore-to-camel-case: true
 
+15. 引入Test
+	 <!-- 引入一个 test 启动器-->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+	</dependency>
+	测试: 快捷键创建一个UserMapperTest 测试
+	@RunWith(SpringRunner.class)
+	@SpringBootTest
+	public class UserMapperTest {
 
+		@Autowired
+		private  UserMapper userMapper;
+
+		@Test
+		public void testQuery(){
+			User user = userMapper.selectByPrimaryKey(1L);
+			System.out.println("user = "+ user);
+		}
+	}
+
+16. 事务
+	引入Jdbc 也就是把事务配置好了
+	直接使用就好 @Transactional
+	@Transactional //开启事务 了
+    public void insertUser(User user){
+        userMapper.insert(user);
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
