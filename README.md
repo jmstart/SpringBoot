@@ -214,7 +214,7 @@ SpringBoot为我们提供了默认配置，而默认配置生效的条件一般�
 		}
 	}
 
-16. 事务
+16. 事务的使用
 	引入Jdbc 也就是把事务配置好了
 	直接使用就好 @Transactional
 	@Transactional //开启事务 了
