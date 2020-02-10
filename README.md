@@ -83,13 +83,13 @@ SpringBoot为我们提供了默认配置，而默认配置生效的条件一般�
 
 所以，我们如果不想配置，只需要引入依赖即可，而依赖版本我们也不用操心，因为只要引入了SpringBoot提供的stater（启动器），就会自动管理依赖及版本了。
 
-因此，玩SpringBoot的第一件事情，就是找启动器，SpringBoot提供了大量的默认启动器，参考课前资料中提供的《SpringBoot启动器.txt》
+因此，玩SpringBoot的第一件事情，就是找启动器，SpringBoot提供了大量的默认启动器，参考资料中提供的《SpringBoot启动器.txt》
 
 2）全局配置
 
 另外，SpringBoot的默认配置，都会读取默认属性，而这些属性可以通过自定义`application.properties`文件来进行覆盖。这样虽然使用的还是默认配置，但是配置中的值改成了我们自定义的。
 
-因此，玩SpringBoot的第二件事情，就是通过`application.properties`来覆盖默认属性值，形成自定义配置。我们需要知道SpringBoot的默认属性key，非常多，参考课前资料提供的：《SpringBoot全局属性.md》
+因此，玩SpringBoot的第二件事情，就是通过`application.properties`来覆盖默认属性值，形成自定义配置。我们需要知道SpringBoot的默认属性key，非常多，参考资料提供的：《SpringBoot全局属性.md》
 
 10. SpringBoot实践
 	10.1 整合SpringMVC (在application.yml里操作)
@@ -107,7 +107,7 @@ SpringBoot为我们提供了默认配置，而默认配置生效的条件一般�
 
 11. 配置拦截器
 	11.1 首先定义一个拦截器
-		@Slf4j //以后可以直接使用注解 不用下面那句话了
+		@Slf4j //日志注解 以后可以直接使用注解 不用下面那句话了
 		public class MyInterceptor implements HandlerInterceptor {
 			//记日志 导入 org.slf4j.Logger 包
 			//private static final Logger log = LoggerFactory.getLogger(MyInterceptor.class);
@@ -153,9 +153,9 @@ SpringBoot为我们提供了默认配置，而默认配置生效的条件一般�
 	
 	12.2 配置数据库驱动
 		<dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+        	</dependency>
 	
 	12.3 配置application.yml文件
 
@@ -187,11 +187,11 @@ SpringBoot为我们提供了默认配置，而默认配置生效的条件一般�
 	</dependency>
 	14.2 注意事项
 	它自动引入Mybatis 和 jdbc数据库连接池 上面的坐标可以删掉
-	在启动类中@MapperScan("com.jiaming.mapper") //扫描mapper接口 不能导入包Mybatis注解了 使用通用的 tk.mybatis...
+	在启动类中@MapperScan("com.jiaming.mapper") //扫描mapper接口 不能导入Mybatis注解包了 使用通用的 tk.mybatis...包
 	application.yml文件 注释掉驼峰
 	#驼峰 通用mapper 也引入了
 	#configuration:
-    #map-underscore-to-camel-case: true
+    	#map-underscore-to-camel-case: true
 
 15. 引入Test
 	 <!-- 引入一个 test 启动器-->
@@ -199,7 +199,7 @@ SpringBoot为我们提供了默认配置，而默认配置生效的条件一般�
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-test</artifactId>
 	</dependency>
-	测试: 快捷键创建一个UserMapperTest 测试
+	测试: 快捷键 创建一个UserMapperTest 测试类
 	@RunWith(SpringRunner.class)
 	@SpringBootTest
 	public class UserMapperTest {
@@ -215,22 +215,10 @@ SpringBoot为我们提供了默认配置，而默认配置生效的条件一般�
 	}
 
 16. 事务的使用
-	引入Jdbc 也就是把事务配置好了
-	直接使用就好 @Transactional
-	@Transactional //开启事务 了
+    引入Jdbc 也就是把事务配置好了
+    直接使用就好 @Transactional注解
+    @Transactional //开启事务
     public void insertUser(User user){
-        userMapper.insert(user);
+	userMapper.insert(user);
     }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
