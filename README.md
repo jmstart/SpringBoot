@@ -112,20 +112,22 @@ SpringBoot为我们提供了默认配置，而默认配置生效的条件一般�
 			//记日志 导入 org.slf4j.Logger 包
 			//private static final Logger log = LoggerFactory.getLogger(MyInterceptor.class);
 			@Override
-			public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+			public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws 				Exception {
 				//使用 log
 				log.debug("preHandle method is running");
 				return true;
 			}
 			@Override
-			public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+			public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView 	
+			modelAndView) throws Exception {
 				log.debug("postHandle method is running");
 			}
 			@Override
-			public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+			public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception 			ex) throws Exception {
 				log.debug("afterCompletion method is running");
 			}
 		}
+		
 	11.2 定义配置类，注册拦截器
 		@Configuration
 		public class MvcConfig implements WebMvcConfigurer {
