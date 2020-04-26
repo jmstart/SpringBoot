@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SpringBoot_Redis" />
+        <module name="SpringBoot_Quick" />
+        <module name="SpringBoot_Quick02" />
+        <module name="SpringBoot_Mybatis" />
+        <module name="SpringBoot_Jpa" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringBoot_Jpa" options="-parameters" />
+      <module name="SpringBoot_Mybatis" options="-parameters" />
+      <module name="SpringBoot_Quick" options="-parameters" />
+      <module name="SpringBoot_Quick02" options="-parameters" />
+      <module name="SpringBoot_Redis" options="-parameters" />
+    </option>
+  </component>
+</project>

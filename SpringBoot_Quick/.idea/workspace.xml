@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6efaa3b8-5804-4897-b52b-8dfdd6f98eec" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1b0iyFRfGgwEZsc6gSkLKg2IIuA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jiaming.repository" />
+      <recent name="com.jiaming.domain" />
+      <recent name="com.jiaming" />
+      <recent name="com.jiaming.controller" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.RedisTest.testRedis">
+    <configuration name="JpaTest.testJpa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot_Jpa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiaming.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiaming.test" />
+      <option name="MAIN_CLASS_NAME" value="com.jiaming.test.JpaTest" />
+      <option name="METHOD_NAME" value="testJpa" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MybatisTest.testSpringBootTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot_Mybatis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiaming.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiaming.test" />
+      <option name="MAIN_CLASS_NAME" value="com.jiaming.test.MybatisTest" />
+      <option name="METHOD_NAME" value="testSpringBootTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.testRedis" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot_Redis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiaming.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiaming.test" />
+      <option name="MAIN_CLASS_NAME" value="com.jiaming.test.RedisTest" />
+      <option name="METHOD_NAME" value="testRedis" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySpringBootApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot_Quick" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiaming.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jiaming.MySpringBootApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySpringBootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot_Quick" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiaming.springboot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jiaming.springboot.MySpringBootApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringbootJpaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="SpringBoot_Jpa" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jiaming.SpringbootJpaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringbootMybatisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="SpringBoot_Mybatis" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jiaming.SpringbootMybatisApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringbootQuick02Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="SpringBoot_Quick02" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jiaming.SpringbootQuick02Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringbootRedisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="SpringBoot_Redis" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jiaming.SpringbootRedisApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RedisTest.testRedis" />
+        <item itemvalue="JUnit.JpaTest.testJpa" />
+        <item itemvalue="JUnit.MybatisTest.testSpringBootTest" />
+        <item itemvalue="Spring Boot.MySpringBootApplication (1)" />
+        <item itemvalue="Spring Boot.MySpringBootApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6efaa3b8-5804-4897-b52b-8dfdd6f98eec" name="Default Changelist" comment="" />
+      <created>1587775664467</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587775664467</updated>
+      <workItem from="1587775667837" duration="7537000" />
+      <workItem from="1587862368261" duration="19764000" />
+      <workItem from="1587890448400" duration="51000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="446" y="34" key="#com.intellij.ide.util.MemberChooser" timestamp="1587873135945">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="446" y="34" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1587873135945" />
+    <state width="1237" height="207" key="GridCell.Tab.0.bottom" timestamp="1587889448752">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="207" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587889448752" />
+    <state width="1237" height="207" key="GridCell.Tab.0.center" timestamp="1587889448752">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="207" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587889448752" />
+    <state width="1237" height="207" key="GridCell.Tab.0.left" timestamp="1587889448752">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="207" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587889448752" />
+    <state width="1237" height="207" key="GridCell.Tab.0.right" timestamp="1587889448752">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="207" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587889448752" />
+    <state width="1237" height="207" key="GridCell.Tab.1.bottom" timestamp="1587883759549">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="207" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587883759549" />
+    <state width="1237" height="207" key="GridCell.Tab.1.center" timestamp="1587883759549">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="207" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1587883759549" />
+    <state width="1237" height="207" key="GridCell.Tab.1.left" timestamp="1587883759549">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="207" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1587883759549" />
+    <state width="1237" height="207" key="GridCell.Tab.1.right" timestamp="1587883759549">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="207" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1587883759549" />
+    <state x="228" y="6" key="Registry" timestamp="1587864226210">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="228" y="6" key="Registry/0.0.1280.680@0.0.1280.680" timestamp="1587864226210" />
+    <state x="144" y="0" key="SettingsEditor" timestamp="1587890498823">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="144" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1587890498823" />
+    <state x="272" y="64" width="847" height="556" key="new project wizard" timestamp="1587887044400">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="272" y="64" width="847" height="556" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1587887044400" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1587887499296">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1587887499296" />
+  </component>
+</project>
