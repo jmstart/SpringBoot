@@ -1,0 +1,49 @@
+#普通数据的配置            所有类型值前面都要有"空格"
+name: zhangsan
+
+#对象的配置和Map是一样的
+person1:
+  name: lisi
+  age: 18
+  addr: beijing
+
+#server:
+#  port: 8082
+
+#行内对象配置
+person2: {name: lisi, age: 18, addr: shengzhen}
+
+#配置数组、集合(普通字符串)
+city1:
+  - beijing
+  - shanghai
+  - shengzhen
+
+city2: [beijing, shanghai, shengzhen]
+
+#配置数组、集合(对象数据)
+#这个不好用,会报错,下面的可以代替
+#student:
+# - name: zhangsan
+#    age: 18
+#    addr: beijing
+# - name: lucy
+#    age: 19
+#    addr: shengzhen
+
+student1: [{name: tom, age: 19, addr: beijing},{name: zhangsan, age: 20, addr: liaoning}]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
