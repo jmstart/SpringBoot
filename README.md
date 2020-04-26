@@ -45,7 +45,8 @@
     该过程是Spring自动完成的。
 
 二、SpringBoot快速入门
-  2.1 添加SpringBoot的起步依赖
+
+   2.1 添加SpringBoot的起步依赖
     
     ```xml
     <parent>
@@ -54,7 +55,7 @@
         <version>2.0.1.RELEASE</version>
     </parent>
     ```
-  2.2 SpringBoot要集成SpringMVC进行Controller的开发，所以项目要导入web的启动依赖
+   2.2 SpringBoot要集成SpringMVC进行Controller的开发，所以项目要导入web的启动依赖
     
     ```xml
     <dependencies>
@@ -64,7 +65,7 @@
         </dependency>
     </dependencies>
     ```
-  2.3 编写SpringBoot引导类
+   2.3 编写SpringBoot引导类
     
    要通过SpringBoot提供的引导类起步SpringBoot才可以进行访问
 
@@ -82,7 +83,7 @@
         }
     }
     ```
-  2.4 SpringBoot工程热部署
+   2.4 SpringBoot工程热部署
   
        我们在开发中反复修改类、页面等资源，每次修改后都是需要重新启动才生效，这样每次启动都很麻烦，浪费了大量的时间，
     我们可以在修改代码后不重启就能生效，在 pom.xml 中添加如下配置就可以实现这样的功能，我们称之为热部署。
@@ -95,9 +96,10 @@
     ```
 
 三. SpringBoot的配置文件
+
    3.1 SpringBoot配置文件类型和作用
       
-         SpringBoot是基于约定的，所以很多配置都有默认值，但如果想使用自己的配置替换默认配置的话，
+      SpringBoot是基于约定的，所以很多配置都有默认值，但如果想使用自己的配置替换默认配置的话，
       就可以使用application.properties application.yml（application.yaml）进行配置。
       SpringBoot默认会从Resources目录下加载application.properties或application.yml（application.yaml）文件，
       其中，application.properties文件是键值对类型的文件，之前一直在使用，除了properties文件外，SpringBoot还可以使用yml文件进行配置。
@@ -110,7 +112,8 @@
       YML文件的扩展名可以使用.yml或者.yaml。
 
 四. SpringBoot与整合其他技术
-    4.1 SpringBoot整合Mybatis
+
+   4.1 SpringBoot整合Mybatis
     
       添加Mybatis的起步依赖
       ```xml
