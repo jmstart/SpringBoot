@@ -48,28 +48,25 @@
 
    2.1 添加SpringBoot的起步依赖
     
-    ```xml
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.1.RELEASE</version>
     </parent>
-    ```
+    
    2.2 SpringBoot要集成SpringMVC进行Controller的开发，所以项目要导入web的启动依赖
     
-    ```xml
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
-    ```
+
    2.3 编写SpringBoot引导类
     
    要通过SpringBoot提供的引导类起步SpringBoot才可以进行访问
 
-    ```java
     package com.jiaming;
 
     import org.springframework.boot.SpringApplication;
@@ -82,18 +79,18 @@
             SpringApplication.run(MySpringBootApplication.class);
         }
     }
-    ```
+    
    2.4 SpringBoot工程热部署
   
        我们在开发中反复修改类、页面等资源，每次修改后都是需要重新启动才生效，这样每次启动都很麻烦，浪费了大量的时间，
     我们可以在修改代码后不重启就能生效，在 pom.xml 中添加如下配置就可以实现这样的功能，我们称之为热部署。
-    ```xml
+    
     <!--热部署配置-->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-devtools</artifactId>
     </dependency>
-    ```
+   
 
 三. SpringBoot的配置文件
 
@@ -116,60 +113,59 @@
    4.1 SpringBoot整合Mybatis
     
       添加Mybatis的起步依赖
-      ```xml
+      
       <!--mybatis起步依赖-->
       <dependency>
           <groupId>org.mybatis.spring.boot</groupId>
           <artifactId>mybatis-spring-boot-starter</artifactId>
           <version>1.1.1</version>
       </dependency>
-      ```
+      
      添加数据库驱动坐标
-     ```xml
+     
      <!-- MySQL连接驱动 -->
      <dependency>
          <groupId>mysql</groupId>
          <artifactId>mysql-connector-java</artifactId>
      </dependency>
-     ```
+     
    4.2 SpringBoot整合Junit
     
     添加Junit的起步依赖
-    ```xml
+    
     <!--测试的起步依赖-->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
         <scope>test</scope>
     </dependency>
-    ```
+    
   
   4.3 SpringBoot整合SpringDataJPA
 
     添加Spring Data JPA的起步依赖
-    ```xml
+    
     <!-- springBoot JPA的起步依赖 -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-    ```
+    
     添加数据库驱动依赖
     
   4.4 SpringBoot整合Redis
     
     添加redis的起步依赖
-
-    ```xml
+    
     <!-- 配置使用redis启动器 -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-redis</artifactId>
     </dependency>
-    ```
+    
     
 五.
-   ```java
+   ```xml
   Hlll
   
    ```
