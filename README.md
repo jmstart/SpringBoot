@@ -224,20 +224,20 @@
         SpringBoot修改日志的默认配置
      
     ```properties
-      logging.level.com.atguigu=trace
+     logging.level.com.atguigu=trace
 
-      #logging.path=
-      # 不指定路径在当前项目下生成springboot.log日志
-      # 可以指定完整的路径；
-      #logging.file=D:/springboot.log
+     #logging.path=
+     # 不指定路径在当前项目下生成springboot.log日志
+     # 可以指定完整的路径；
+     #logging.file=D:/springboot.log
 
-      # 在当前磁盘的根路径下创建spring文件夹和里面的log文件夹；使用 spring.log 作为默认文件
-      logging.path=/spring/log
+     # 在当前磁盘的根路径下创建spring文件夹和里面的log文件夹；使用 spring.log 作为默认文件
+     logging.path=/spring/log
 
-      #  在控制台输出的日志的格式
-      logging.pattern.console=%d{yyyy-MM-dd} [%thread] %-5level %logger{50} - %msg%n
-      # 指定文件中日志输出的格式
-      logging.pattern.file=%d{yyyy-MM-dd} === [%thread] === %-5level === %logger{50} ==== %msg%n
+     #  在控制台输出的日志的格式
+     logging.pattern.console=%d{yyyy-MM-dd} [%thread] %-5level %logger{50} - %msg%n
+     # 指定文件中日志输出的格式
+     logging.pattern.file=%d{yyyy-MM-dd} === [%thread] === %-5level === %logger{50} ==== %msg%n
     ```
    
   5.5 指定配置
@@ -246,35 +246,35 @@
 
     logback-spring.xml：日志框架就不直接加载日志的配置项，由SpringBoot解析日志配置，可以使用SpringBoot的高级Profile功能
     
-    ```xml
-     <springProfile name="staging">
-         <!-- configuration to be enabled when the "staging" profile is active -->
-         可以指定某段配置只在某个环境下生效
-     </springProfile>
-    ```
+   ```xml
+    <springProfile name="staging">
+        <!-- configuration to be enabled when the "staging" profile is active -->
+        可以指定某段配置只在某个环境下生效
+    </springProfile>
+   ```
     例如：
     
-```xml
-     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
-         <!--
-         日志输出格式：
-       %d表示日期时间，
-       %thread表示线程名，
-       %-5level：级别从左显示5个字符宽度
-       %logger{50} 表示logger名字最长50个字符，否则按照句点分割。 
-       %msg：日志消息，
-       %n是换行符
-         -->
-         <layout class="ch.qos.logback.classic.PatternLayout">
-             <springProfile name="dev">
-                 <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ----> [%thread] ---> %-5level %logger{50} - %msg%n</pattern>
-             </springProfile>
-             <springProfile name="!dev">
-                 <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ==== [%thread] ==== %-5level %logger{50} - %msg%n</pattern>
-             </springProfile>
-         </layout>
-     </appender>
-```
+   ```xml
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+      <!--
+      日志输出格式：
+      %d表示日期时间，
+      %thread表示线程名，
+      %-5level：级别从左显示5个字符宽度
+      %logger{50} 表示logger名字最长50个字符，否则按照句点分割。 
+      %msg：日志消息，
+      %n是换行符
+      -->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <springProfile name="dev">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ----> [%thread] ---> %-5level %logger{50} - %msg%n</pattern>
+            </springProfile>
+            <springProfile name="!dev">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ==== [%thread] ==== %-5level %logger{50} - %msg%n</pattern>
+            </springProfile>
+        </layout>
+    </appender>
+   ```
     
     
     
