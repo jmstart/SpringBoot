@@ -108,7 +108,7 @@
       比如： C/C++, Ruby, Python, Java, Perl, C#, PHP等。YML文件是以数据为核心的，比传统的xml方式更加简洁。
       YML文件的扩展名可以使用.yml或者.yaml。
 
-四. SpringBoot与整合其他技术
+四. SpringBoot整合其他技术
 
    4.1 SpringBoot整合Mybatis
     
@@ -276,7 +276,7 @@
     </appender>
    ```
 
-六. SpringBoot_Web开发
+六. SpringBoot Web开发
     
     
     
