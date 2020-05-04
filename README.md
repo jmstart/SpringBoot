@@ -281,12 +281,14 @@
   6.1 SpringBoot对静态资源的映射规则
     
     SpringBoot源码:
-    ```java
+    
+   ```java
       @ConfigurationProperties(prefix = "spring.resources", ignoreUnknownFields = false)
       public class ResourceProperties implements ResourceLoaderAware {
       //可以设置和静态资源有关的参数，缓存时间等
-    ```
-    ```java
+   ```
+    
+   ```java
       WebMvcAuotConfiguration：
         @Override
         public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -351,21 +353,22 @@
           }
 
         }
-      ```
- 6.2 引入warjars
+     ```
+     
+6.2 引入warjars
     
     webjars：以jar包的方式引入静态资源
     
     所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源
     
-    ```xml
+   ```xml
       <!--引入jquery-webjar-->在访问的时候只需要写webjars下面资源的名称即可
       <dependency>
         <groupId>org.webjars</groupId>
         <artifactId>jquery</artifactId>
         <version>3.3.1</version>
       </dependency>
-    ```
+   ```
     
  6.3 静态资源
     
@@ -389,7 +392,7 @@
     
     引入:
     
-    ```xml
+   ```xml
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -403,10 +406,11 @@
           <!-- thymeleaf2  layout1-->
           <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
        </properties>
-    ```
+   ```
+   
   7.2 Thymeleaf使用
     
-    ```java
+   ```java
       @ConfigurationProperties(prefix = "spring.thymeleaf")
       public class ThymeleafProperties {
 
@@ -417,7 +421,7 @@
         public static final String DEFAULT_PREFIX = "classpath:/templates/";
 
         public static final String DEFAULT_SUFFIX = ".html";
-     ```
+    ```
      
     只要我们把HTML页面放在classpath:/templates/,thymeleaf就能自动渲染
     
@@ -425,13 +429,13 @@
 
     1、导入thymeleaf的名称空间
     
-    ```xml
+   ```xml
       <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    ```
+   ```
     
     2、使用thymeleaf语法；
 
-    ```html
+   ```html
       <!DOCTYPE html>
       <html lang="en" xmlns:th="http://www.thymeleaf.org">
       <head>
@@ -445,7 +449,7 @@
           <hr/>
       </body>
       </html>
-    ```
+   ```
 八. SpringMVC自动配置
 
   8.1  SpringMVC auto-configuration
@@ -473,7 +477,7 @@
     
     既保留了所有的自动配置，也能用我们扩展的配置；
 
-    ```java
+   ```java
       //使用WebMvcConfigurerAdapter可以来扩展SpringMVC的功能
       @Configuration
       public class MyMvcConfig extends WebMvcConfigurerAdapter {
@@ -485,9 +489,9 @@
               registry.addViewController("/action").setViewName("success");
           }
       }
-    ```
+   ```
     
-    其他操作可以看我的案例:SpringBoot_Web_Restful_CRUD
+    其他关于SpringBoot Web的方面操作可以看我的案例: SpringBoot_Web_Restful_CRUD工程
     
     
     
