@@ -277,22 +277,217 @@
    ```
 
 六. SpringBoot之Web开发
+
+  6.1 SpringBoot对静态资源的映射规则
+    
+    SpringBoot源码:
+    ```java
+      @ConfigurationProperties(prefix = "spring.resources", ignoreUnknownFields = false)
+      public class ResourceProperties implements ResourceLoaderAware {
+      //可以设置和静态资源有关的参数，缓存时间等
+    ```
+    ```java
+      WebMvcAuotConfiguration：
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+          if (!this.resourceProperties.isAddMappings()) {
+            logger.debug("Default resource handling disabled");
+            return;
+          }
+          Integer cachePeriod = this.resourceProperties.getCachePeriod();
+          if (!registry.hasMappingForPattern("/webjars/**")) {
+            customizeResourceHandlerRegistration(
+                registry.addResourceHandler("/webjars/**")
+                    .addResourceLocations(
+                        "classpath:/META-INF/resources/webjars/")
+                .setCachePeriod(cachePeriod));
+          }
+          String staticPathPattern = this.mvcProperties.getStaticPathPattern();
+                //静态资源文件夹映射
+          if (!registry.hasMappingForPattern(staticPathPattern)) {
+            customizeResourceHandlerRegistration(
+                registry.addResourceHandler(staticPathPattern)
+                    .addResourceLocations(
+                        this.resourceProperties.getStaticLocations())
+                .setCachePeriod(cachePeriod));
+          }
+        }
+
+        //配置欢迎页映射
+        @Bean
+        public WelcomePageHandlerMapping welcomePageHandlerMapping(
+            ResourceProperties resourceProperties) {
+          return new WelcomePageHandlerMapping(resourceProperties.getWelcomePage(),
+              this.mvcProperties.getStaticPathPattern());
+        }
+
+        //配置自己喜欢的图标
+        @Configuration
+        @ConditionalOnProperty(value = "spring.mvc.favicon.enabled", matchIfMissing = true)
+        public static class FaviconConfiguration {
+
+          private final ResourceProperties resourceProperties;
+
+          public FaviconConfiguration(ResourceProperties resourceProperties) {
+            this.resourceProperties = resourceProperties;
+          }
+
+          @Bean
+          public SimpleUrlHandlerMapping faviconHandlerMapping() {
+            SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
+            mapping.setOrder(Ordered.HIGHEST_PRECEDENCE + 1);
+                    //所有  **/favicon.ico 
+            mapping.setUrlMap(Collections.singletonMap("**/favicon.ico",
+                faviconRequestHandler()));
+            return mapping;
+          }
+
+          @Bean
+          public ResourceHttpRequestHandler faviconRequestHandler() {
+            ResourceHttpRequestHandler requestHandler = new ResourceHttpRequestHandler();
+            requestHandler
+                .setLocations(this.resourceProperties.getFaviconLocations());
+            return requestHandler;
+          }
+
+        }
+      ```
+ 6.2 引入warjars
+    
+    webjars：以jar包的方式引入静态资源
+    
+    所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源
+    
+    ```xml
+      <!--引入jquery-webjar-->在访问的时候只需要写webjars下面资源的名称即可
+      <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>jquery</artifactId>
+        <version>3.3.1</version>
+      </dependency>
+    ```
+    
+ 6.3 静态资源
+    
+    访问当前项目的任何资源，都去（静态资源的文件夹）找映射  
+    
+    "classpath:/META-INF/resources/", 
+    "classpath:/resources/",
+    "classpath:/static/", 
+    "classpath:/public/" 
+    "/"：当前项目的根路径
+    
+七. 模板引擎
+
+  7.1 Thymeleaf
+    
+    模板引擎的种类: JSP、Velocity、Freemarker、Thymeleaf  
+    
+    SpringBoot推荐的Thymeleaf
+
+    语法更简单，功能更强大
+    
+    引入:
+    
+    ```xml
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+      </dependency>
+      
+      切换thymeleaf版本:
+      
+      <properties>
+          <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+          <!-- 布局功能的支持程序  thymeleaf3主程序  layout2以上版本 -->
+          <!-- thymeleaf2  layout1-->
+          <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
+       </properties>
+    ```
+  7.2 Thymeleaf使用
+    
+    ```java
+      @ConfigurationProperties(prefix = "spring.thymeleaf")
+      public class ThymeleafProperties {
+
+        private static final Charset DEFAULT_ENCODING = Charset.forName("UTF-8");
+
+        private static final MimeType DEFAULT_CONTENT_TYPE = MimeType.valueOf("text/html");
+
+        public static final String DEFAULT_PREFIX = "classpath:/templates/";
+
+        public static final String DEFAULT_SUFFIX = ".html";
+     ```
+     
+    只要我们把HTML页面放在classpath:/templates/,thymeleaf就能自动渲染
+    
+    使用：
+
+    1、导入thymeleaf的名称空间
+    
+    ```xml
+      <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    ```
+    
+    2、使用thymeleaf语法；
+
+    ```html
+      <!DOCTYPE html>
+      <html lang="en" xmlns:th="http://www.thymeleaf.org">
+      <head>
+          <meta charset="UTF-8">
+          <title>Title</title>
+      </head>
+      <body>
+          <h1>测试Thymeleaf</h1>
+          <!--取数据-->
+          <div th:text="${name}"></div>
+          <hr/>
+      </body>
+      </html>
+    ```
+八. SpringMVC自动配置
+
+  8.1  SpringMVC auto-configuration
+    
+    SpringBoot 自动配置好了SpringMVC
+    
+    以下是SpringBoot对SpringMVC的默认配置:**==(WebMvcAutoConfiguration)源码==**
+
+    - Inclusion of `ContentNegotiatingViewResolver` and `BeanNameViewResolver` beans.
+      - 自动配置了ViewResolver（视图解析器：根据方法的返回值得到视图对象（View），视图对象决定如何渲染（转发？重定向？））
+      - ContentNegotiatingViewResolver：组合所有的视图解析器的；
+      - ==如何定制：我们可以自己给容器中添加一个视图解析器；自动的将其组合进来；==
+
+    - Support for serving static resources, including support for WebJars (see below).静态资源文件夹路径,webjars
+
+    - Static `index.html` support. 静态首页访问
+
+    - Custom `Favicon` support (see below).  favicon.ico
+
+    - 自动注册了 of `Converter`, `GenericConverter`, `Formatter` beans.
+
+      - Converter：转换器；  public String hello(User user)：类型转换使用Converter
+      - `Formatter`  格式化器；  2017.12.17===Date；
     
     
+    既保留了所有的自动配置，也能用我们扩展的配置；
+
+    ```java
+      //使用WebMvcConfigurerAdapter可以来扩展SpringMVC的功能
+      @Configuration
+      public class MyMvcConfig extends WebMvcConfigurerAdapter {
+
+          @Override
+          public void addViewControllers(ViewControllerRegistry registry) {
+             // super.addViewControllers(registry);
+              //浏览器发送 /action 请求来到 success
+              registry.addViewController("/action").setViewName("success");
+          }
+      }
+    ```
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    其他操作可以看我的案例:SpringBoot_Web_Restful_CRUD
     
     
     
