@@ -278,7 +278,7 @@
 
 六. SpringBoot之Web开发
 
-  6.1 SpringBoot对静态资源的映射规则
+ 6.1 SpringBoot对静态资源的映射规则
     
     SpringBoot源码:
     
@@ -354,8 +354,6 @@
 
         }
     ```
-     
-6.2 引入warjars
     
     webjars：以jar包的方式引入静态资源
     
@@ -370,7 +368,7 @@
       </dependency>
    ```
     
- 6.3 静态资源
+ 6.2 静态资源
     
     访问当前项目的任何资源，都去（静态资源的文件夹）找映射  
     
@@ -382,7 +380,7 @@
     
 七. 模板引擎
 
-  7.1 Thymeleaf
+ 7.1 Thymeleaf
     
     模板引擎的种类: JSP、Velocity、Freemarker、Thymeleaf  
     
@@ -408,7 +406,7 @@
        </properties>
     ```
    
-  7.2 Thymeleaf使用
+ 7.2 Thymeleaf使用
     
    ```java
       @ConfigurationProperties(prefix = "spring.thymeleaf")
@@ -429,9 +427,9 @@
 
     1、导入thymeleaf的名称空间
     
-   ```xml
+    ```xml
       <html lang="en" xmlns:th="http://www.thymeleaf.org">
-   ```
+    ```
     
     2、使用thymeleaf语法；
 
