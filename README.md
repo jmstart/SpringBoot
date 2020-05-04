@@ -353,7 +353,7 @@
           }
 
         }
-     ```
+    ```
      
 6.2 引入warjars
     
@@ -406,7 +406,7 @@
           <!-- thymeleaf2  layout1-->
           <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
        </properties>
-   ```
+    ```
    
   7.2 Thymeleaf使用
     
