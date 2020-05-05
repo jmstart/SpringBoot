@@ -483,7 +483,7 @@
       }
    ```
     
-    其他关于SpringBoot Web的方面操作可以看我的案例: SpringBoot_Web_Restful_CRUD工程
+    其他关于SpringBoot Web的操作可以看我的案例: SpringBoot_Web_Restful_CRUD工程
     
     
     
