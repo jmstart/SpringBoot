@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--导入 Thymeleaf名称空间 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org>
+<head>
+    <meta charset=" UTF-8 >
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>测试Thymeleaf</h1>
+
+    <!--取数据-->
+    <div th:text="${name}"></div>
+    <hr/>
+
+    <!--转义特殊字符 直接输出语句不输出样式-->
+    <div th:text="${name}"></div>
+    <!--不转义 直接输出html语句样式-->
+    <div th:utext="${name}"></div>
+    <hr/>
+
+    <!--取数组遍历   输出3个h3样式-->
+    <h3 th:text="${hob}" th:each="hob:${Hobby}"></h3>
+    <hr/>
+
+    <h3>
+        <!--/*
+            要想在行内输出,有二种方式:
+                1. [[]] = th:text
+                2. [()] = th:utext
+
+            要想在Thymeleaf中使用注释不报错,就这么使用
+        */-->
+        <span th:each="hob:${Hobby}">[[${hob}]]</span>
+    </h3>
+
+
+</body>
+</html>
