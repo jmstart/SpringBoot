@@ -2,7 +2,7 @@
 
 一. Docker
 
-  1.简介
+  1. 简介
     
     Docker是一个开源的应用容器引擎；是一个轻量级容器技术；
     
@@ -11,7 +11,7 @@
     运行中的这个镜像称为容器，容器启动是非常快速的
     
   
-  2.核心概念
+  2. 核心概念
     
     docker主机(Host)：安装了Docker程序的机器（Docker直接安装在操作系统之上）；
 
@@ -23,7 +23,7 @@
 
     docker容器(Container)：镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用
 
-  3.使用Docker的步骤：
+  3. 使用Docker的步骤：
 
     1）、安装Docker
     
@@ -36,7 +36,7 @@
 
 二. 安装Docker
 
-  1.安装linux虚拟机
+  1. 安装linux虚拟机
     
     1）、VMWare、VirtualBox（安装）
 
@@ -64,7 +64,7 @@
     
     8）、使用客户端连接linux
   
-  2.在linux虚拟机上安装docker
+  2. 在linux虚拟机上安装docker
     
     步骤：
 
@@ -91,7 +91,7 @@
       systemctl stop docker
     ```
     
-  3.Docker常用命令&操作
+  3. Docker常用命令&操作
     
     1）、镜像操作
 
@@ -110,7 +110,7 @@
 
       步骤：
 
-    ```shell
+  ```shell
       1、搜索镜像
       [root@localhost ~]# docker search tomcat
       
@@ -146,18 +146,17 @@
       
       11、查看容器的日志
       docker logs container-name/container-id
-    
-    ```
+  ```
    更多命令参看：https://docs.docker.com/engine/reference/commandline/docker/  可以参考每一个镜像的文档
    
     3）、安装MySQL示例
       
-   ```shell
+  ```shell
     docker pull mysql
-   ```
+  ```
    
    错误的启动
-   ```shell
+  ```shell
     [root@localhost ~]# docker run --name mysql01 -d mysql
     42f09819908bb72dd99ae19e792e0a5d03c48638421fa64cce5f8ba0f40f5846
     
@@ -170,12 +169,11 @@
     c4f1ac60b3fc        tomcat              "catalina.sh run"        About an hour ago   Exited (143) About an hour ago                       lonely_fermi
     81ec743a5271        tomcat              "catalina.sh run"        About an hour ago   Exited (143) About an hour ago                       sick_ramanujan
 
-
     //错误日志
     [root@localhost ~]# docker logs 42f09819908b
     error: database is uninitialized and password option is not specified 
       You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD；这个三个参数必须指定一个
-   ```
+  ```
 
    正确的启动
   ```shell
@@ -184,11 +182,11 @@
     [root@localhost ~]# docker ps
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
     b874c56bec49        mysql               "docker-entrypoint.sh"   4 seconds ago       Up 3 seconds        3306/tcp            mysql01
-    ```
+  ```
     
     做了端口映射
     
-    ```shell
+  ```shell
     [root@localhost ~]# docker run -p 3306:3306 --name mysql02 -e MYSQL_ROOT_PASSWORD=123456 -d mysql
     ad10e4bc5c6a0f61cbad43898de71d366117d120e39db651844c0e73863b9434
     [root@localhost ~]# docker ps
@@ -197,13 +195,13 @@
   ```
   
    几个其他的高级操作
-   ```shell
+  ```shell
     docker run --name mysql03 -v /conf/mysql:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
     把主机的/conf/mysql文件夹挂载到 mysqldocker容器的/etc/mysql/conf.d文件夹里面
     改mysql的配置文件就只需要把mysql配置文件放在自定义的文件夹下（/conf/mysql）
     
     docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag --character-set-server=utf8mb4 --collation-         server=utf8mb4_unicode_ci
     指定mysql的一些配置参数
-   ```
+  ```
 
 
